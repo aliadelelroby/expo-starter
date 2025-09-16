@@ -2,3 +2,4 @@ apps:
   - name: expo
     port: 8081
     subdomain: expo
+    preview: true
