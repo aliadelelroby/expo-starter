@@ -7,11 +7,12 @@ import { useSafeAreaInsets as useNativeSafeAreaInsets } from 'react-native-safe-
 export function useSafeAreaInsets() {
   const insets = useNativeSafeAreaInsets();
 
-  // On web/iframe, force 64px top padding for iPhone frame compatibility
-  const isWebIframe =
-    typeof window !== 'undefined' ? window.self !== window.top : false;
+  // On web/iframe (tablet and above), force 64px top and 34px bottom padding for iPhone frame compatibility
+  // Matches mobile app: isTabletAndAbove = typeof window !== 'undefined' ? window.self !== window.top : true
+  const isTabletAndAbove =
+    typeof window !== 'undefined' ? window.self !== window.top : true;
 
-  if (isWebIframe) {
+  if (isTabletAndAbove) {
     return {
       left: 0,
       right: 0,
