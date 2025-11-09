@@ -1,13 +1,7 @@
 import { Tabs } from 'expo-router';
-import { Home } from 'lucide-react-native';
-import { useSafeAreaInsets } from '@/app/utils/useSafeAreaInsets';
+import { Car } from 'lucide-react-native';
 
-/**
- * Tab layout component for the app
- */
 export default function TabLayout() {
-  const insets = useSafeAreaInsets();
-
   return (
     <Tabs
       screenOptions={{
@@ -17,8 +11,7 @@ export default function TabLayout() {
           borderTopWidth: 1,
           borderColor: '#E5E7EB',
           paddingTop: 4,
-          paddingBottom: Math.max(insets.bottom, 4),
-          height: 49 + insets.bottom,
+          paddingBottom: 4,
         },
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#6B6B6B',
@@ -32,7 +25,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color, size }) => <Home color={color} size={24} />,
+          tabBarIcon: ({ color, size }) => <Car color={color} size={24} />,
         }}
       />
     </Tabs>
