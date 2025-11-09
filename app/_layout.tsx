@@ -23,7 +23,7 @@ const queryClient = new QueryClient({
  */
 export default function RootLayout() {
   useEffect(() => {
-    SplashScreen.hideAsync();
+      SplashScreen.hideAsync();
   }, []);
 
   return (
@@ -38,11 +38,11 @@ export default function RootLayout() {
         },
       }}
     >
-      <QueryClientProvider client={queryClient}>
-        <GestureHandlerRootView style={{ flex: 1 }}>
+    <QueryClientProvider client={queryClient}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
           <Slot />
-        </GestureHandlerRootView>
-      </QueryClientProvider>
+      </GestureHandlerRootView>
+    </QueryClientProvider>
     </SafeAreaProvider>
   );
 }
