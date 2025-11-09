@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from '@/app/utils/useSafeAreaInsets';
 import { useQuery } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
 
