@@ -4,8 +4,24 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Slot } from 'expo-router';
+import { Platform } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
+
+/**
+ * Initialize browser bridge for AI automation (web only)
+ * This allows the parent window to control this iframe when running in web
+ */
+if (Platform.OS === 'web' && typeof window !== 'undefined') {
+  import('@velork/browser-bridge').then(({ initAutomationBridge }) => {
+    initAutomationBridge({
+      allowedOrigins: ['*'], // Allow all origins for template flexibility
+      maxConsoleBufferSize: 1000,
+      enableConsoleCapture: true,
+      enableNetworkCapture: true,
+    });
+  });
+}
 
 const queryClient = new QueryClient({
   defaultOptions: {
